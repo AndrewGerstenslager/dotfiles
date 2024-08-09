@@ -22,4 +22,4 @@ I have some additional things I've done so far:
 - LazyGit popup window with the lazygit plugin alongside installed lazygit
 
 ### Setup Process
-I also outlined the programs I installed plus the dependencies I have for them in [this file](things_installed.sh)
+I also outlined the programs I installed plus the dependencies I have for them in [this file](things_installed_notes.sh)
