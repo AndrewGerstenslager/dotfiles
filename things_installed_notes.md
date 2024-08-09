@@ -9,6 +9,8 @@ Here are some notes that I've taken of things I've installed over the time gettt
 ## Terminal Stuff
 I'm using bash because ohmybash gives me a pretty good set of features without having to install since most systems normally use bash.
 
+I'm using the 'agnoster' theme, but catppuccin's green does not play well with the white, so I changed it to black. The file is located at ~/.oh-my-bash/themes/agnoster/agnoster.theme.sh and in the 'prompt_virtualenv', 'prompt_pyenv', and 'prompt_condaenv' change the 'cyan white' to 'cyan black' colors to make the text more readable.
+
 ### Bash config
 ##### oh my bash: https://github.com/ohmybash/oh-my-bash
 > bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
