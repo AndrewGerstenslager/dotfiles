@@ -519,6 +519,9 @@ require("lazy").setup({
 					--  Symbols are things like variables, functions, types, etc.
 					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 
+					-- Opens a hovering window of the code defintion if available
+					map("<leader>cd", vim.lsp.buf.hover, "[C]ode [D]efinition")
+
 					-- Fuzzy find all the symbols in your current workspace.
 					--  Similar to document symbols, except searches over your entire project.
 					map(
