@@ -4,6 +4,7 @@ Here are some notes that I've taken of things I've installed over the time gettt
 
 ### Updating packages
 > sudo apt update
+>
 > sudo apt upgrade
 
 ## Terminal Stuff
@@ -26,27 +27,40 @@ I'm using the 'agnoster' theme, but catppuccin's green does not play well with t
 ### Dependencies
 ##### installing these for neovim LSP support (Mason Dependency)
 > sudo apt install nodejs
+>
 > sudo apt install npm
 
 ##### neovim dependency
 > sudo apt install unzip
+>
 > sudo apt install luarocks
+>
 > sudo apt install ripgrep
 
 ##### lazygit for git integration: https://github.com/jesseduffield/lazygit
 > LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+>
 > curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 > tar xf lazygit.tar.gz lazygit
+>
 > sudo install lazygit /usr/local/bin
 
 ### Neovim itself
 > sudo apt-get install software-properties-common
+>
 > sudo add-apt-repository ppa:neovim-ppa/unstable
+>
 > sudo apt-get update
+>
 > sudo apt-get install neovim
+
+
+
+
 
 ### Other misc things
 > sudo apt install python3-pip
+>
 > sudo apt install graphviz
 
 ### Adding the symbolic links
