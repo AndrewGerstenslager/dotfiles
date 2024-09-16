@@ -47,6 +47,16 @@ I'm using the 'agnoster' theme, but catppuccin's green does not play well with t
 
 ### Other misc things
 > sudo apt install python3-pip
+> sudo apt install graphviz
 
 ### Adding the symbolic links
 > . create_symbolic_links.sh
+
+
+### Tensorflow stuff needed (https://towardsdatascience.com/installing-tensorflow-gpu-in-ubuntu-20-04-4ee3ca4cb75d)
+1. Install latest cuda drivers
+2. Install latest cudnn
+3. Install miniconda
+4. Make python environment 3.10 is the one that worked with the openai gym
+5. > pip install tensorflow[and-cuda]
+
