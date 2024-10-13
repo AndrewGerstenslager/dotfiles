@@ -26,8 +26,8 @@ I'm using the 'agnoster' theme, but catppuccin's green does not play well with t
 
 ### Dependencies
 ##### installing these for neovim LSP support (Mason Dependency)
-> sudo apt install nodejs
->
+> curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+> sudo apt install -y nodejs
 > sudo apt install npm
 
 ##### neovim dependency
