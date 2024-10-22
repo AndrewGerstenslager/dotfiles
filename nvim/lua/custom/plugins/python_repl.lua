@@ -1,6 +1,7 @@
 return {
 	{
-		"pappasam/nvim-repl",
+		--"pappasam/nvim-repl",
+		dir = "/home/andrew/repo/public_repos/nvim-repl",
 		init = function()
 			vim.g["repl_filetype_commands"] = {
 				javascript = "node",
