@@ -54,8 +54,21 @@ I'm using the 'agnoster' theme, but catppuccin's green does not play well with t
 >
 > sudo apt-get install neovim
 
+### Homebrew
+##### docs page https://brew.sh/
+> /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+> echo >> /home/andrew/.bashrc
+> echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/andrew/.bashrc
+> eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+### Image Support
+Image Nvim Page [here](https://github.com/3rd/image.nvim?tab=readme-ov-file)
+##### ImageMagic
+> sudo apt install libmagickwand-dev
+> brew install jstkdng/programs/ueberzugpp
 
+##### Image Test
+![image](portrait.jpg)
 
 
 ### Other misc things
