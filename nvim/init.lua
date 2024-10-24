@@ -205,14 +205,20 @@ end, { noremap = true, silent = true, desc = "Run selected lines in REPL" })
 
 -- Function to fold all Python methods
 local function fold_python_methods()
-	vim.cmd("%g/^\\s*def /normal! zM") -- Fold all Python method definitions
+	vim.opt.foldmethod = "expr"
+	vim.opt.foldexpr = 'getline(v:lnum) =~ "^\\s*def\\s" ? "1" : "0"'
+	vim.cmd("normal! zM") -- Collapse all folds
 	vim.cmd("nohlsearch") -- Clear search highlighting
+	vim.opt.foldmethod = "indent" -- Switch back to indent after folding
 end
 
 -- Function to unfold all Python methods
 local function unfold_python_methods()
-	vim.cmd("%g/^\\s*def /normal! zR") -- Unfold all Python method definitions
+	vim.opt.foldmethod = "expr"
+	vim.opt.foldexpr = 'getline(v:lnum) =~ "^\\s*def\\s" ? "1" : "0"'
+	vim.cmd("normal! zR") -- Open all folds
 	vim.cmd("nohlsearch") -- Clear search highlighting
+	vim.opt.foldmethod = "indent" -- Switch back to indent after unfolding
 end
 
 -- Keymaps
