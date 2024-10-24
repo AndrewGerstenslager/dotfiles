@@ -7,10 +7,11 @@ return {
 			"kevinhwang91/promise-async", -- Ensure promise-async is installed
 		},
 		config = function()
-			-- Function to customize the fold text with arrows and fold size, no indent numbers
+			-- Function to customize the fold text with arrows and fold size
 			local handler = function(virtText, lnum, endLnum, width, truncate)
 				local newVirtText = {}
-				local suffix = ("  ➤ %d "):format(endLnum - lnum) -- Adds an arrow and the number of folded lines
+				-- Adds a sideways arrow followed by the number of folded lines
+				local suffix = ("  → %d "):format(endLnum - lnum)
 				local sufWidth = vim.fn.strdisplaywidth(suffix)
 				local targetWidth = width - sufWidth
 				local curWidth = 0
@@ -58,6 +59,13 @@ return {
 				end
 			end)
 
+			-- Remove highlight for folded lines
+			vim.cmd([[
+        hi UfoFoldedBg guibg=NONE guifg=NONE
+        hi UfoFoldedFg guifg=NONE
+        hi Folded guibg=NONE guifg=NONE
+        hi FoldColumn guibg=NONE guifg=NONE
+      ]])
 			-- Additional folding-related settings
 			vim.o.foldcolumn = "0" -- Disable foldcolumn (no indent level numbers on the side)
 			vim.o.foldlevel = 99 -- Start with all folds open

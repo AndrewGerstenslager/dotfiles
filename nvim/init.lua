@@ -203,28 +203,6 @@ vim.keymap.set("v", "<leader>rc", function()
 	require("myplugin").run_selected_lines()
 end, { noremap = true, silent = true, desc = "Run selected lines in REPL" })
 
--- Function to fold all Python methods
-local function fold_python_methods()
-	vim.opt.foldmethod = "expr"
-	vim.opt.foldexpr = 'getline(v:lnum) =~ "^\\s*def\\s" ? "1" : "0"'
-	vim.cmd("normal! zM") -- Collapse all folds
-	vim.cmd("nohlsearch") -- Clear search highlighting
-	vim.opt.foldmethod = "indent" -- Switch back to indent after folding
-end
-
--- Function to unfold all Python methods
-local function unfold_python_methods()
-	vim.opt.foldmethod = "expr"
-	vim.opt.foldexpr = 'getline(v:lnum) =~ "^\\s*def\\s" ? "1" : "0"'
-	vim.cmd("normal! zR") -- Open all folds
-	vim.cmd("nohlsearch") -- Clear search highlighting
-	vim.opt.foldmethod = "indent" -- Switch back to indent after unfolding
-end
-
--- Keymaps
-vim.keymap.set("n", "zp", fold_python_methods, { desc = "Python: fold all methods" })
-vim.keymap.set("n", "zP", unfold_python_methods, { desc = "Python: unfold all methods" })
-
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
