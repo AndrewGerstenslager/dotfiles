@@ -13,11 +13,16 @@ return {
 			{ "<leader>rc", "<cmd>ReplRunCell<cr>", desc = "nvim-repl run cell" },
 			{ "<leader>rr", "<Plug>ReplSendLine", desc = "Send line to REPL" },
 			{ "<leader>rv", "<Plug>ReplSendVisual", desc = "Send visual selection to REPL", mode = "x" },
+			{
+				"<leader>rf",
+				"<cmd>ReplClose<cr><cmd>ReplToggle<cr>ggVG<Plug>ReplSendVisual",
+				desc = "Send entire file to REPL",
+			},
 
 			-- Keymaps for navigating cells
-			{ "<leader>rj", "/#%%<CR>", desc = "Jump to next cell" },
-			{ "<leader>rk", "?#%%<CR>", desc = "Jump to previous cell" },
-			{ "<leader>rn", "o#%%<Esc>", desc = "Insert new cell marker" },
+			{ "<leader>rj", "<cmd>let @/='# %%'<cr>n<cmd>noh<cr>", desc = "Jump to next cell" },
+			{ "<leader>rk", "<cmd>let @/='# %%'<cr>N<cmd>noh<cr>", desc = "Jump to previous cell" },
+			{ "<leader>ra", "O# %%<Esc>", desc = "Insert cell marker above" },
 		},
 	},
 }
