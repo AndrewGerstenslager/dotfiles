@@ -172,6 +172,9 @@ vim.opt.foldlevel = 99
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- Make :W work like :w to handle common typo
+vim.cmd("command! W w")
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -217,6 +220,15 @@ vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left wind
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+-- Enable spell checking for certain file types
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "tex", "latex", "markdown" },
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = "en_us"
+	end,
+})
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -639,6 +651,37 @@ require("lazy").setup({
 				-- tsserver = {},
 				--
 
+				texlab = {
+					settings = {
+						texlab = {
+							chktex = {
+								onEdit = true,
+								onOpenAndSave = true,
+							},
+						},
+					},
+				}, -- LaTeX language server
+				ltex = {
+					settings = {
+						ltex = {
+							enabled = { "latex", "tex", "bib" },
+							language = "en-US",
+							diagnosticSeverity = "information",
+							setenceCacheSize = 2000,
+							additionalRules = {
+								enablePickyRules = true,
+								motherTongue = "en-US",
+							},
+							trace = { server = "verbose" },
+							dictionary = {
+								["en-US"] = { "/home/andrew/repo/dotfiles/dict.txt" },
+							},
+							disabledRules = {},
+							hiddenFalsePositives = {},
+						},
+					},
+				},
+
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},
@@ -669,6 +712,7 @@ require("lazy").setup({
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 				"black",
+				"ltex-ls", -- Language tool/grammar checker for LaTeX
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
