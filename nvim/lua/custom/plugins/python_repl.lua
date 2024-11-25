@@ -23,6 +23,10 @@ return {
 			{ "<leader>rj", "<cmd>let @/='# %%'<cr>n<cmd>noh<cr>", desc = "Jump to next cell" },
 			{ "<leader>rk", "<cmd>let @/='# %%'<cr>N<cmd>noh<cr>", desc = "Jump to previous cell" },
 			{ "<leader>ra", "O# %%<Esc>", desc = "Insert cell marker above" },
+
+			-- Keymaps for navigating Python functions
+			{ "<leader>pj", "<cmd>let @/='def '<cr>n<cmd>noh<cr>", desc = "Jump to next Python function" },
+			{ "<leader>pk", "<cmd>let @/='def '<cr>N<cmd>noh<cr>", desc = "Jump to previous Python function" },
 		},
 	},
 }
