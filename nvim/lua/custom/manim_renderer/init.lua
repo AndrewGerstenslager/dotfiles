@@ -26,8 +26,7 @@ function M.render_scene()
 	local file_name = vim.fn.expand("%:t:r")
 	local video_path = dir_name .. "/media/videos/" .. file_name .. "/480p15/" .. class_name .. ".mp4"
 
-	local win_path = vim.fn.system({ "wslpath", "-w", video_path }):gsub("\n", "")
-	local cmd = string.format("manim -ql '%s' '%s' && explorer.exe '%s'", file_path, class_name, win_path)
+	local cmd = string.format("manim -ql '%s' '%s' && ffplay -autoexit '%s'", file_path, class_name, video_path)
 
 	print("Running command: " .. cmd)
 
