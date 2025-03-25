@@ -33,6 +33,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ## Neovim
 
+
 ### Mason Dependencies
 ##### installing these for neovim LSP support (Mason Dependency)
 ```bash
@@ -43,13 +44,24 @@ node -v
 npm -v
 ```
 
-##### neovim dependency
+##### Python3.9
+```bash
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.9
+sudo apt install python3.9-venv
+sudo python3.9 -m pip install --upgrade pip
+
+```
+
+
+### neovim dependency
 ```bash
 sudo apt install luarocks
 sudo apt install ripgrep
 ```
 
-##### lazygit for git integration: https://github.com/jesseduffield/lazygit
+### lazygit for git integration: https://github.com/jesseduffield/lazygit
 ```bash
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
@@ -84,22 +96,44 @@ brew install jstkdng/programs/ueberzugpp
 ![image](portrait.jpg)
 
 
-### Other misc things
+## Other misc things
 ```bash
-sudo apt install python3-pip
 sudo apt install graphviz
 ```
 
-### Adding the symbolic links
+## Anaconda for terminal
+```bash 
+curl -O https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
+bash ~/Anaconda3-2024.10-1-Linux-x86_64.sh
+```
+Then you can remove the file after it has installed
+
+## Adding the symbolic links
 ```bash
 . create_symbolic_links.sh
 ```
 
-
 ### Tensorflow stuff needed (https://towardsdatascience.com/installing-tensorflow-gpu-in-ubuntu-20-04-4ee3ca4cb75d)
 1. Install latest cuda drivers
+```bash
+
+```
 2. Install latest cudnn
-3. Install miniconda
-4. Make python environment 3.10 is the one that worked with the openai gym
-5. > pip install tensorflow[and-cuda]
+```bash
+wget https://developer.download.nvidia.com/compute/cudnn/9.5.1/local_installers/cudnn-local-repo-ubuntu2004-9.5.1_1.0-1_amd64.deb
+sudo dpkg -i cudnn-local-repo-ubuntu2004-9.5.1_1.0-1_amd64.deb
+sudo cp /var/cudnn-local-repo-ubuntu2004-9.5.1/cudnn-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cudnn
+```
+
+3. In the python environment:
+```bash
+pip install tensorflow[and-cuda]
+```
+
+### Manim dependencies
+```bash
+sudo apt install mpv
+```
 
